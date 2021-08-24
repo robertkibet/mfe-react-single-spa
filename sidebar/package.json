@@ -1,5 +1,5 @@
 {
-  "name": "@roberto/home",
+  "name": "@roberto/sidebar",
   "scripts": {
     "start": "webpack serve",
     "start:standalone": "webpack serve --env standalone",
@@ -58,5 +58,5 @@
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8"
   },
-  "types": "dist/roberto-home.d.ts"
+  "types": "dist/roberto-sidebar.d.ts"
 }
