@@ -1,6 +1,6 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/roberto-root-config.ts"],
+  "files": ["src/buerto-root-config.ts"],
   "compilerOptions": {
     "declarationDir": "dist"
   },

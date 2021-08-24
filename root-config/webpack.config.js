@@ -3,7 +3,7 @@ const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "roberto"; //organization name is global, ensure it matches throughout
+  const orgName = "buerto"; //organization name is global, ensure it matches throughout
   const defaultConfig = singleSpaDefaults({
     orgName,
     projectName: "root-config",

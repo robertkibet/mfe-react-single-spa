@@ -2,9 +2,9 @@
 {
   "imports": {
     "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-    "@roberto/root-config": "//localhost:9000/roberto-root-config.js",
-    "@roberto/navbar": "http://localhost:8080/roberto-navbar.js",
-    "@roberto/sidebar": "http://localhost:8081/roberto-sidebar.js",
-    "@roberto/home": "http://localhost:8082/roberto-home.js"
+    "@buerto/root-config": "//localhost:9000/buerto-root-config.js",
+    "@buerto/navbar": "http://localhost:8080/buerto-navbar.js",
+    "@buerto/sidebar": "http://localhost:8081/buerto-sidebar.js",
+    "@buerto/home": "http://localhost:8082/buerto-home.js"
   }
 }

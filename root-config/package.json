@@ -1,5 +1,5 @@
 {
-  "name": "@roberto/root-config",
+  "name": "@buerto/root-config",
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
@@ -45,5 +45,5 @@
     "@types/webpack-env": "^1.16.0",
     "single-spa-layout": "1.6.0"
   },
-  "types": "dist/roberto-root-config.d.ts"
+  "types": "dist/buerto-root-config.d.ts"
 }
