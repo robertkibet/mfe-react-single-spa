@@ -1,10 +1,14 @@
 // this will be deployed
 {
   "imports": {
-    "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-    "@buerto/root-config": "//localhost:9000/buerto-root-config.js",
-    "@buerto/navbar": "http://localhost:8080/buerto-navbar.js",
-    "@buerto/sidebar": "http://localhost:8081/buerto-sidebar.js",
-    "@buerto/home": "http://localhost:8082/buerto-home.js"
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.2/lib/system/single-spa.min.js",
+    "@buerto/root-config": "https://storage.googleapis.com/demo-spa/root-config/buerto-root-config.js",
+    "@buerto/root-config/": "https://storage.googleapis.com/demo-spa/root-config/",
+    "@buerto/navbar": "https://storage.googleapis.com/demo-spa/navbar/buerto-navbar.js",
+    "@buerto/navbar/": "https://storage.googleapis.com/demo-spa/navbar/",
+    "@buerto/sidebar": "https://storage.googleapis.com/demo-spa/sidebar/buerto-sidebar.js",
+    "@buerto/sidebar/": "https://storage.googleapis.com/demo-spa/sidebar/",
+    "@buerto/home": "https://storage.googleapis.com/demo-spa/home/buerto-home.js",
+    "@buerto/home/": "https://storage.googleapis.com/demo-spa/home/"
   }
 }

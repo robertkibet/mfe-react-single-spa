@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Root Config</title>
+    <title data-react-helmet="true">MFE Demo App</title>
 
     <!--
     Remove this if you only support browsers that support async/await.
@@ -34,37 +34,15 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
-        }
-      }
-    </script>
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
-      as="script"
-    />
+  <!-- KEY: Preload single spa lib -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.2/lib/system/single-spa.min.js" as="script">
+ 
+  <!-- KEY: use system js imports -->
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <!-- Add your organization's prod import map URL to this script's src  -->
+  <script type="systemjs-importmap" src=<%= bucketUrl %>></script>
 
-    <!-- Add your organization's prod import map URL to this script's src  -->
-    <script
-      type="systemjs-importmap"
-      src="https://storage.googleapis.com/demo-spa/importmap.json"
-    ></script>
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.2/lib/system/single-spa.min.js",
-          "react": "https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.production.min.js",
-          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js",
-          "@buerto/root-config": "//localhost:9000/buerto-root-config.js",
-          "@buerto/navbar": "http://localhost:8080/buerto-navbar.js",
-          "@buerto/sidebar": "http://localhost:8081/buerto-sidebar.js",
-          "@buerto/home": "http://localhost:8082/buerto-home.js"
-        }
-      }
-    </script>
+
     <% if (isLocal) { %>
     <script type="systemjs-importmap">
       {
@@ -73,6 +51,11 @@
         }
       }
     </script>
+      <!-- KEY: Enable GUI import map overrides on runtime-->
+     <!-- https://github.com/joeldenning/import-map-overrides/blob/master/docs/ui.md -->
+    <import-map-overrides-full
+      dev-libs
+    ></import-map-overrides-full>
     <% } %>
 
     <!--
@@ -95,9 +78,7 @@
     <script>
       System.import("@buerto/root-config");
     </script>
-    <import-map-overrides-full
-      show-when-local-storage="devtools"
-      dev-libs
-    ></import-map-overrides-full>
+      <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+
   </body>
 </html>
