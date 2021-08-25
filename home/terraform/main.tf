@@ -7,6 +7,10 @@ locals {
   path_for_app = "home"
 }
 
+data "google_secret_manager_secret_version" "git_login_token" {
+  project = "sensen-ventures"
+  secret  = "git_login_token"
+}
 ####
 ####
 #  Build step: Deploy Home App to bucket
@@ -28,6 +32,20 @@ resource "google_cloudbuild_trigger" "home_deployer" {
     }
   }
   build {
+    step {
+      name       = "gcr.io/cloud-builders/git"
+      entrypoint = "bash"
+      dir        = "$${_PATH}"
+      args = [
+        "-c",
+        <<-EOF
+                  git remote set-url origin https://robertkibet:${data.google_secret_manager_secret_version.git_login_token.secret_data}@github.com/robertkibet/mfe-react-single-spa.git
+                  git clone https://robertkibet:${data.google_secret_manager_secret_version.git_login_token.secret_data}@github.com/robertkibetrobert/mfe-react-single-spa.git
+                  git fetch
+                  git checkout $BRANCH_NAME
+                EOF
+      ]
+    }
     step {
       name       = "gcr.io/cloud-builders/yarn"
       entrypoint = "yarn"
@@ -58,6 +76,17 @@ resource "google_cloudbuild_trigger" "home_deployer" {
     #   dir = "$${_PATH}"
     #   args = ["cp", "-r", "src/assets", "gs://demo-spa/${local.appname}/build-$COMMIT_SHA/"]
     # }
+    step {
+      name       = "gcr.io/cloud-builders/git"
+      entrypoint = "bash"
+      args = [
+        "-c",
+        <<-EOF
+              git pull origin $BRANCH_NAME
+              git push origin $BRANCH_NAME
+            EOF
+      ]
+    }
   }
   included_files = ["${local.path_for_app}/**"]
   ignored_files = [
