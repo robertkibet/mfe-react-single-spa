@@ -15,7 +15,7 @@ locals {
 resource "google_cloudbuild_trigger" "navbar_deployer" {
   provider = google-beta
   name     = "navbar-deployer"
-  
+
   substitutions = {
     _PATH = local.path_for_app
   }
@@ -28,6 +28,18 @@ resource "google_cloudbuild_trigger" "navbar_deployer" {
     }
   }
   build {
+    step {
+        name = "gcr.io/cloud-builders/git"
+        entrypoint = "bash"
+        dir = "$${_PATH}"
+        args = [
+                  "-c",  
+                <<-EOF
+                  git config --global user.name robertkibet
+                  git config --global user.email kipronokrobert@gmail.com
+                EOF
+        ]
+      }
     step {
       name       = "gcr.io/cloud-builders/yarn"
       entrypoint = "yarn"
@@ -49,7 +61,8 @@ resource "google_cloudbuild_trigger" "navbar_deployer" {
     step {
       name = "gcr.io/cloud-builders/gsutil"
       dir  = "$${_PATH}"
-      args = ["cp", "-r", "dist/*${local.appname}*", "gs://demo-spa/${local.appname}/build-$COMMIT_SHA/"]
+      # args = ["cp", "-r", "dist/*${local.appname}*", "gs://demo-spa/${local.appname}/build-$COMMIT_SHA/"]
+      args = ["cp", "-r", "dist/*${local.appname}*", "gs://demo-spa/${local.appname}/"]
     }
     # step {
     #   name = "gcr.io/cloud-builders/gsutil"
