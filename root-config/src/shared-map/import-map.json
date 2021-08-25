@@ -1,9 +1,14 @@
 // this will be deployed
 {
   "imports": {
+    // core items: spa and react
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.2/lib/system/single-spa.min.js",
+    "react": "https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js",
+    "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js",
+    // imports: root config
     "@buerto/root-config": "https://storage.googleapis.com/demo-spa/root-config/buerto-root-config.js",
     "@buerto/root-config/": "https://storage.googleapis.com/demo-spa/root-config/",
+    // imports: MFEs
     "@buerto/navbar": "https://storage.googleapis.com/demo-spa/navbar/buerto-navbar.js",
     "@buerto/navbar/": "https://storage.googleapis.com/demo-spa/navbar/",
     "@buerto/sidebar": "https://storage.googleapis.com/demo-spa/sidebar/buerto-sidebar.js",
