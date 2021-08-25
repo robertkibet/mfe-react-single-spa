@@ -39,6 +39,8 @@ resource "google_cloudbuild_trigger" "home_deployer" {
       args = [
         "-c",
         <<-EOF
+                  git config --global user.name robertkibet
+           	      git config --global user.email kipronokrobert@gmail.com
                   git remote set-url origin https://robertkibet:${data.google_secret_manager_secret_version.git_login_token.secret_data}@github.com/robertkibet/mfe-react-single-spa.git
                   git clone https://robertkibet:${data.google_secret_manager_secret_version.git_login_token.secret_data}@github.com/robertkibetrobert/mfe-react-single-spa.git
                   git fetch
