@@ -13,7 +13,10 @@
     "test": "cross-env BABEL_ENV=test jest",
     "watch-tests": "cross-env BABEL_ENV=test jest --watch",
     "coverage": "cross-env BABEL_ENV=test jest --coverage",
-    "build:types": "tsc"
+    "build:types": "tsc",
+    "version:git:message": "yarn config set version-git-message 'navbar-v%s'",
+    "bump:version:commit": "yarn version:git:message && yarn version --patch",
+    "bump:version": "yarn version --no-git-tag-version --no-commit-hooks --patch"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
