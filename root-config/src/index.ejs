@@ -44,10 +44,36 @@
       font-family: 'Raleway', sans-serif;
     }
 
+    html {
+      height: 100%;
+      width: 100%;
+    }
+
     body {
       margin: 0;
       box-sizing: border-box;
       overflow: hidden;
+    }
+
+    .content {
+      height: 95%;
+      display: grid;
+      grid-gap: 1rem;
+      /* three columns so we can position the 
+     * two asides, the middle column can take up
+     * more space than the asides */
+      grid-template-columns: 1fr 3fr;
+      /* same with the rows */
+      grid-template-rows: max-content 4fr;
+      /* Span the header and footer over all columns, 
+     * put main in the middle column on the middle 
+     * row, and the the sidebars on each side */
+      grid-template-areas: "header header"
+        "sidebar main";
+    }
+
+    .header {
+      grid-area: header;
     }
 
     .main {
@@ -58,12 +84,9 @@
       grid-area: sidebar;
     }
 
-    .content {
-      display: block;
-    }
-    .page-loader{
+    .page-loader {
       position: absolute;
-      top:0;
+      top: 0;
       bottom: 0;
       left: 0;
       right: 0;

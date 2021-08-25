@@ -1,15 +1,16 @@
 <single-spa-router>
   <route default>
     <div class="content">
-      <div class="sidebar">
+      <div class="header">
         <application name="@buerto/navbar" loader="defaultLoader"></application>
       </div>
+      <div class="sidebar">
+        <application name="@buerto/sidebar" loader="defaultLoader"></application>
+      </div>
       <div class="main">
-        <main>
-          <route default>
-            <application name="@buerto/home" loader="defaultLoader"></application>
-          </route>
-        </main>
+        <route default>
+          <application name="@buerto/home" loader="defaultLoader"></application>
+        </route>
       </div>
     </div>
   </route>
