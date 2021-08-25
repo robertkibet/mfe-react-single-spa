@@ -9,7 +9,9 @@ import microfrontendLayout from "./microfrontend-layout.html";
 const data = {
   loaders: {
     defaultLoader: `
+   <div class="page-loader">
     <div class="lds-ripple"><div></div><div></div></div>
+   </div>
     `,
   },
   props: {},
