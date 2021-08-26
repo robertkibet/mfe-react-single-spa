@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import Root from "./root.component";
 
-// singleSpaReact helper exposes the lifecycles of your app
+// singleSpaReact helper exposes the lifecycles of your apps
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
