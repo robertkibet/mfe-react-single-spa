@@ -2,6 +2,10 @@ provider "google-beta" {
   project     = "sensen-ventures"
   credentials = file("../credentials/sensen-ventures-b93e930d34d1.json")
 }
+provider "google" {
+  project     = "sensen-ventures"
+  credentials = file("../credentials/sensen-ventures-b93e930d34d1.json")
+}
 locals {
   appname      = "navbar"
   path_for_app = "navbar"
