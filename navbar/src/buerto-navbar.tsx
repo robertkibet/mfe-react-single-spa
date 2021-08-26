@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import Root from "./root.component";
 
-//navbar app lifecycle
 // singleSpaReact helper exposes the lifecycles of your app
 const lifecycles = singleSpaReact({
   React,
