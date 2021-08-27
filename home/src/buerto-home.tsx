@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import singleSpaReact from "single-spa-react";
 import Root from "./root.component";
-
 // singleSpaReact helper exposes the lifecycles of your apps
 const lifecycles = singleSpaReact({
   React,
@@ -10,7 +9,23 @@ const lifecycles = singleSpaReact({
   rootComponent: Root,
   errorBoundary(err, info, props) {
     // Customize the root error boundary for your microfrontend here.
-    return null;
+    if (err) {
+      // if you have a logger utility, you can catch the errors here and send it somewhere, fex Sentry
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("+++++++++++++++HOME APP++++++++++")
+      console.log("+++++++++++++++ERROR OCCURRED++++++++++")
+      console.log("+++++++++++++++ERROR OCCURRED++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log(err)
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+    };
+      // show the user some meaningful message :P
+    return <div><h3>Something went wrong</h3></div>;
   },
 });
 

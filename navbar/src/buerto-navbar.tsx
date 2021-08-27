@@ -10,7 +10,23 @@ const lifecycles = singleSpaReact({
   rootComponent: Root,
   errorBoundary(err, info, props) {
     // Customize the root error boundary for your microfrontend here.
-    return null;
+    if (err) {
+      // if you have a logger utility, you can catch the errors here and send it somewhere, fex Sentry
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("+++++++++++++++NAVBAR APP++++++++++")
+      console.log("+++++++++++++++ERROR OCCURRED++++++++++")
+      console.log("+++++++++++++++ERROR OCCURRED++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log(err)
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+      console.log("++++++++++++++++++++++++++++++++++++++")
+    };
+    // show the user some meaningful message :P
+    return <div><h3>Something went wrong</h3></div>;
   },
 });
 
