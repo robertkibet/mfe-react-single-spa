@@ -28,7 +28,8 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Title bold size={19}>MFE Demo</Title>
-      <Title>Account</Title>
+      <Title>Profile</Title>
+      <Title>Accounts</Title>
     </Wrapper>
   )
 }
